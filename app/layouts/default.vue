@@ -1,17 +1,19 @@
 <template>
   <v-app>
-    <nav class="d-flex justify-center ga-2 bg-primary">
-      <nuxt-link
-        class="text-decoration-none text-white"
+    <v-app-bar color="primary">
+      <v-toolbar-title>My Nuxt App</v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        text
         to="/"
-        >Home</nuxt-link
+        >Home</v-btn
       >
-      <nuxt-link
-        class="text-decoration-none text-white"
+      <v-btn
+        text
         to="/about"
-        >About</nuxt-link
+        >About</v-btn
       >
-    </nav>
+    </v-app-bar>
     <v-main>
       <v-container>
         <slot />
