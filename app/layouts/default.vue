@@ -6,6 +6,10 @@
         <li><nuxt-link to="/about">About</nuxt-link></li>
       </ul>
     </nav>
-    <slot />
+    <v-main>
+      <v-container>
+        <slot />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
