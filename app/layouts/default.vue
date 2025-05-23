@@ -10,6 +10,11 @@
       >
       <v-btn
         text
+        to="/counter"
+        >Limitador de Acessos</v-btn
+      >
+      <v-btn
+        text
         to="/about"
         >About</v-btn
       >
