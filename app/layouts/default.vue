@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <nav>
+    <nav class="d-flex justify-center ga-2 bg-primary">
       <nuxt-link to="/">Home</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
     </nav>
