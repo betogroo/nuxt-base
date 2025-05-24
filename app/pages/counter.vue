@@ -27,7 +27,7 @@
           size="x-large"
           variant="elevated"
           width="135"
-          @click="displayNumber--"
+          @click="decreaseValue"
           >-</v-btn
         >
         <v-btn
@@ -36,7 +36,7 @@
           size="x-large"
           variant="elevated"
           width="135"
-          @click="displayNumber++"
+          @click="increaseValue"
           >+</v-btn
         >
       </v-card-actions>
@@ -51,6 +51,14 @@
         displayNumber: 7,
         maxEntry: 10,
       }
+    },
+    methods: {
+      increaseValue() {
+        this.displayNumber++
+      },
+      decreaseValue() {
+        this.displayNumber--
+      },
     },
   })
 </script>
