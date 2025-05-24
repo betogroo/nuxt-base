@@ -20,6 +20,10 @@
           <h4 class="text-caption">max: 50</h4>
         </v-card>
       </v-card-text>
+      <v-card-actions class="justify-center">
+        <v-btn>-</v-btn>
+        <v-btn>+</v-btn>
+      </v-card-actions>
     </v-card>
   </div>
 </template>
