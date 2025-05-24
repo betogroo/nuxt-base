@@ -23,13 +23,18 @@
       <v-card-actions class="justify-center">
         <v-btn
           color="warning"
-          max-width="140"
-          min-width="120"
           size="x-large"
           variant="elevated"
+          width="135"
           >-</v-btn
         >
-        <v-btn>+</v-btn>
+        <v-btn
+          color="primary"
+          size="x-large"
+          variant="elevated"
+          width="135"
+          >+</v-btn
+        >
       </v-card-actions>
     </v-card>
   </div>
