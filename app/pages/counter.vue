@@ -15,9 +15,9 @@
           max-width="280"
           rounded="lg"
         >
-          <h1 class="text-h2">17</h1>
+          <h1 class="text-h2">{{ displayNumber }}</h1>
           <h2 class="text-h6">Pessoas Entraram</h2>
-          <h4 class="text-caption">max: 50</h4>
+          <h4 class="text-caption">max: {{ maxEntry }}</h4>
         </v-card>
       </v-card-text>
       <v-card-actions class="justify-center mt-6">
@@ -39,3 +39,14 @@
     </v-card>
   </div>
 </template>
+
+<script lang="ts">
+  export default defineComponent({
+    data() {
+      return {
+        displayNumber: 7,
+        maxEntry: 10,
+      }
+    },
+  })
+</script>
