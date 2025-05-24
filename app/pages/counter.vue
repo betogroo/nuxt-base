@@ -3,7 +3,7 @@
     <h1 class="text-h4 text-center mb-2">Limitador de Acessos</h1>
     <v-card
       class="mx-auto pa-5"
-      color="success"
+      :color="displayNumber >= maxEntry ? 'error' : 'success'"
       max-width="400"
       rounded="lg"
       variant="tonal"
@@ -11,7 +11,7 @@
       <v-card-text>
         <v-card
           class="mx-auto text-center mt-3 pa-4"
-          color="success"
+          :color="displayNumber >= maxEntry ? 'error' : 'success'"
           max-width="280"
           rounded="lg"
         >
