@@ -20,7 +20,7 @@
           <h4 class="text-caption">max: 50</h4>
         </v-card>
       </v-card-text>
-      <v-card-actions class="justify-center">
+      <v-card-actions class="justify-center mt-6">
         <v-btn
           color="warning"
           size="x-large"
