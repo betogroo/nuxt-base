@@ -26,6 +26,7 @@
           size="x-large"
           variant="elevated"
           width="135"
+          @click="displayNumber--"
           >-</v-btn
         >
         <v-btn
@@ -33,6 +34,7 @@
           size="x-large"
           variant="elevated"
           width="135"
+          @click="displayNumber++"
           >+</v-btn
         >
       </v-card-actions>
