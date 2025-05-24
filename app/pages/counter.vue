@@ -3,7 +3,7 @@
     <h1 class="text-h4 text-center mb-2">Limitador de Acessos</h1>
     <v-card
       class="mx-auto pa-5"
-      :color="displayNumber >= maxEntry ? 'error' : 'success'"
+      :color="isFull ? 'error' : 'success'"
       max-width="400"
       rounded="lg"
       variant="tonal"
@@ -11,7 +11,7 @@
       <v-card-text>
         <v-card
           class="mx-auto text-center mt-3 pa-4"
-          :color="displayNumber >= maxEntry ? 'error' : 'success'"
+          :color="isFull ? 'error' : 'success'"
           max-width="280"
           rounded="lg"
         >
@@ -23,7 +23,7 @@
       <v-card-actions class="justify-center mt-6">
         <v-btn
           color="warning"
-          :disabled="displayNumber <= 0"
+          :disabled="isEmpty"
           size="x-large"
           variant="elevated"
           width="135"
@@ -32,7 +32,7 @@
         >
         <v-btn
           color="primary"
-          :disabled="displayNumber >= maxEntry"
+          :disabled="isFull"
           size="x-large"
           variant="elevated"
           width="135"
@@ -51,6 +51,14 @@
         displayNumber: 7,
         maxEntry: 10,
       }
+    },
+    computed: {
+      isFull(): boolean {
+        return this.displayNumber >= this.maxEntry
+      },
+      isEmpty(): boolean {
+        return this.displayNumber <= 0
+      },
     },
     methods: {
       increaseValue() {
