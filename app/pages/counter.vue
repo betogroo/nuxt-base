@@ -23,6 +23,7 @@
       <v-card-actions class="justify-center mt-6">
         <v-btn
           color="warning"
+          :disabled="displayNumber <= 0"
           size="x-large"
           variant="elevated"
           width="135"
@@ -31,6 +32,7 @@
         >
         <v-btn
           color="primary"
+          :disabled="displayNumber >= maxEntry"
           size="x-large"
           variant="elevated"
           width="135"
