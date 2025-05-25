@@ -50,7 +50,14 @@
       const displayNumber = ref(7)
       const maxEntry = ref(10)
 
-      return { displayNumber, maxEntry }
+      function increaseValue() {
+        displayNumber.value++
+      }
+      const decreaseValue = () => {
+        displayNumber.value--
+      }
+
+      return { displayNumber, maxEntry, increaseValue, decreaseValue }
     },
 
     computed: {
@@ -59,14 +66,6 @@
       },
       isEmpty(): boolean {
         return this.displayNumber <= 0
-      },
-    },
-    methods: {
-      increaseValue() {
-        this.displayNumber++
-      },
-      decreaseValue() {
-        this.displayNumber--
       },
     },
   })
