@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  const displayNumber = ref(7)
+  const maxEntry = ref(10)
+
+  const increaseValue = () => displayNumber.value++
+
+  const decreaseValue = () => displayNumber.value--
+
+  const isFull = computed(() => displayNumber.value >= maxEntry.value)
+
+  const isEmpty = computed(() => displayNumber.value <= 0)
+</script>
+
 <template>
   <div>
     <h1 class="text-h4 text-center mb-2">Limitador de Acessos</h1>
@@ -43,29 +56,3 @@
     </v-card>
   </div>
 </template>
-
-<script lang="ts">
-  export default defineComponent({
-    setup() {
-      const displayNumber = ref(7)
-      const maxEntry = ref(10)
-
-      const increaseValue = () => displayNumber.value++
-
-      const decreaseValue = () => displayNumber.value--
-
-      const isFull = computed(() => displayNumber.value >= maxEntry.value)
-
-      const isEmpty = computed(() => displayNumber.value <= 0)
-
-      return {
-        displayNumber,
-        maxEntry,
-        increaseValue,
-        decreaseValue,
-        isFull,
-        isEmpty,
-      }
-    },
-  })
-</script>
