@@ -57,16 +57,22 @@
         displayNumber.value--
       }
 
-      return { displayNumber, maxEntry, increaseValue, decreaseValue }
-    },
+      const isFull = computed(() => {
+        return displayNumber.value >= maxEntry.value
+      })
 
-    computed: {
-      isFull(): boolean {
-        return this.displayNumber >= this.maxEntry
-      },
-      isEmpty(): boolean {
-        return this.displayNumber <= 0
-      },
+      const isEmpty = computed(() => {
+        return displayNumber.value <= 0
+      })
+
+      return {
+        displayNumber,
+        maxEntry,
+        increaseValue,
+        decreaseValue,
+        isFull,
+        isEmpty,
+      }
     },
   })
 </script>
