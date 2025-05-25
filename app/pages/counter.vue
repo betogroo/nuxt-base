@@ -50,20 +50,13 @@
       const displayNumber = ref(7)
       const maxEntry = ref(10)
 
-      function increaseValue() {
-        displayNumber.value++
-      }
-      const decreaseValue = () => {
-        displayNumber.value--
-      }
+      const increaseValue = () => displayNumber.value++
 
-      const isFull = computed(() => {
-        return displayNumber.value >= maxEntry.value
-      })
+      const decreaseValue = () => displayNumber.value--
 
-      const isEmpty = computed(() => {
-        return displayNumber.value <= 0
-      })
+      const isFull = computed(() => displayNumber.value >= maxEntry.value)
+
+      const isEmpty = computed(() => displayNumber.value <= 0)
 
       return {
         displayNumber,
