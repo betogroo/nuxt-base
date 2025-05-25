@@ -46,12 +46,13 @@
 
 <script lang="ts">
   export default defineComponent({
-    data() {
-      return {
-        displayNumber: 7,
-        maxEntry: 10,
-      }
+    setup() {
+      const displayNumber = ref(7)
+      const maxEntry = ref(10)
+
+      return { displayNumber, maxEntry }
     },
+
     computed: {
       isFull(): boolean {
         return this.displayNumber >= this.maxEntry
