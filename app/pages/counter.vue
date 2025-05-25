@@ -1,14 +1,12 @@
 <script setup lang="ts">
-  const displayNumber = ref(7)
-  const maxEntry = ref(10)
-
-  const increaseValue = () => displayNumber.value++
-
-  const decreaseValue = () => displayNumber.value--
-
-  const isFull = computed(() => displayNumber.value >= maxEntry.value)
-
-  const isEmpty = computed(() => displayNumber.value <= 0)
+  const {
+    decreaseValue,
+    increaseValue,
+    displayNumber,
+    isEmpty,
+    isFull,
+    maxEntry,
+  } = useCounter()
 </script>
 
 <template>
