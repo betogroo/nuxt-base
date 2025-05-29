@@ -3,5 +3,10 @@
 </script>
 <template>
   <h1>Todo List</h1>
-  <div>{{ list }}</div>
+  <div
+    v-for="item in list"
+    :key="item.name"
+  >
+    {{ item }}
+  </div>
 </template>
