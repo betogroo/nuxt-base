@@ -1,5 +1,10 @@
+interface List {
+  name: string
+  checked: boolean
+}
+
 const useTodo = () => {
-  const list = ref([
+  const list = ref<List[]>([
     {
       name: 'Escova de Dentes',
       checked: false,
