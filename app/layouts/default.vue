@@ -15,6 +15,11 @@
       >
       <v-btn
         text
+        to="/todo"
+        >Todo</v-btn
+      >
+      <v-btn
+        text
         to="/about"
         >About</v-btn
       >
