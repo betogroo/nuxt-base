@@ -7,6 +7,6 @@
     v-for="item in list"
     :key="item.name"
   >
-    {{ item }}
+    {{ item.name }}
   </div>
 </template>
