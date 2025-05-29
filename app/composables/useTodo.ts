@@ -17,6 +17,10 @@ const useTodo = () => {
       name: 'Secador de Cabelo',
       checked: false,
     },
+    {
+      name: 'Escova de Cabelo',
+      checked: true,
+    },
   ])
   return { list }
 }
