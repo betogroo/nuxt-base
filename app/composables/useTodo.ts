@@ -22,7 +22,13 @@ const useTodo = () => {
       checked: true,
     },
   ])
-  return { list }
+
+  const toggleCheck = (i: number) => {
+    const item = list.value[i]
+    if (!item) return
+    item.checked = !item.checked
+  }
+  return { list, toggleCheck }
 }
 
 export default useTodo

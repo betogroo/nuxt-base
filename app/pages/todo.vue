@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  const { list } = useTodo()
-  const click = (item: string, index: number) =>
-    console.log('clicou', item, index)
+  const { list, toggleCheck } = useTodo()
 </script>
 <template>
   <h1>Todo List</h1>
@@ -9,9 +7,11 @@
     <v-list-item
       v-for="(item, i) in list"
       :key="item.name"
-      prepend-icon="mdi-check"
+      :prepend-icon="
+        item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
+      "
       :title="item.name"
-      @click="click(item.name, i)"
+      @click="toggleCheck(i)"
     />
   </v-list>
 </template>
