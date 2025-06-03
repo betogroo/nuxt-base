@@ -19,7 +19,7 @@ const useTodo = () => {
     },
     {
       name: 'Escova de Cabelo',
-      checked: true,
+      checked: false,
     },
   ])
 
@@ -28,6 +28,7 @@ const useTodo = () => {
     if (!item) return
     item.checked = !item.checked
   }
+
   return { list, toggleCheck }
 }
 
