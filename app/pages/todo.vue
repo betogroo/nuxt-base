@@ -11,6 +11,7 @@
       :prepend-icon="
         item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
       "
+      :ripple="false"
       @click="toggleCheck(i)"
     >
       <template #title>
