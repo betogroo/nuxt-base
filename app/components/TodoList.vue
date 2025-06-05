@@ -7,7 +7,7 @@
   defineProps<Props>()
 
   const $emit = defineEmits<{
-    'item-click': [id: number]
+    'item-click': [id: string]
   }>()
 </script>
 

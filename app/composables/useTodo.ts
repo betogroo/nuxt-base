@@ -3,33 +3,33 @@ import type { List } from '~/types'
 const useTodo = () => {
   const list = ref<List[]>([
     {
-      id: 1,
+      id: crypto.randomUUID(),
       name: 'Escova de Dentes',
       checked: false,
     },
     {
-      id: 2,
+      id: crypto.randomUUID(),
       name: 'Sabonete',
       checked: false,
     },
     {
-      id: 3,
+      id: crypto.randomUUID(),
       name: 'Secador de Cabelo',
       checked: true,
     },
     {
-      id: 4,
+      id: crypto.randomUUID(),
       name: 'Escova de Cabelo',
       checked: false,
     },
     {
-      id: 5,
+      id: crypto.randomUUID(),
       name: 'Carregador',
       checked: false,
     },
   ])
 
-  function toggleCheck(id: number) {
+  const toggleCheck = (id: string) => {
     const item = list.value.find((item) => item.id === id)
     if (item) {
       item.checked = !item.checked
