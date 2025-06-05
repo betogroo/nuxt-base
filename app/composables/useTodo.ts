@@ -1,4 +1,5 @@
 interface List {
+  id: number
   name: string
   checked: boolean
 }
@@ -6,27 +7,37 @@ interface List {
 const useTodo = () => {
   const list = ref<List[]>([
     {
+      id: 1,
       name: 'Escova de Dentes',
       checked: false,
     },
     {
+      id: 2,
       name: 'Sabonete',
       checked: false,
     },
     {
+      id: 3,
       name: 'Secador de Cabelo',
       checked: false,
     },
     {
+      id: 4,
       name: 'Escova de Cabelo',
+      checked: false,
+    },
+    {
+      id: 5,
+      name: 'Carregador',
       checked: false,
     },
   ])
 
-  const toggleCheck = (i: number) => {
-    const item = list.value[i]
-    if (!item) return
-    item.checked = !item.checked
+  function toggleCheck(id: number) {
+    const itemList = list.value.find((item) => item.id === id)
+    if (itemList) {
+      itemList.checked = !itemList.checked
+    }
   }
 
   return { list, toggleCheck }
