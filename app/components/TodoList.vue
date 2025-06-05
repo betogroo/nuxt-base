@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  import type { List } from '~/composables/useTodo'
+  import type { List } from '~/types'
+  defineProps<Props>()
+
+  const { toggleCheck } = useTodo()
 
   interface Props {
     list: List[]
   }
-  defineProps<Props>()
-  const { toggleCheck } = useTodo()
 </script>
 
 <template>
