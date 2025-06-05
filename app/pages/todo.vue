@@ -2,7 +2,15 @@
   const { checkedList, uncheckedList, toggleCheck } = useTodo()
 </script>
 <template>
-  <div>
+  <v-container max-width="480">
+    <v-form class="d-flex align-center justify-space-around ga-3 mb-6">
+      <v-text-field
+        density="compact"
+        :hide-details="true"
+        variant="outlined"
+      />
+      <v-btn>Adicionar</v-btn>
+    </v-form>
     <TodoList
       v-if="uncheckedList.length"
       :list="uncheckedList"
@@ -11,7 +19,7 @@
     />
     <h1
       v-else
-      class="text-h5"
+      class="text-subtitle-1"
     >
       Todos os itens já foram conferidos
     </h1>
@@ -23,5 +31,5 @@
         @item-click="toggleCheck"
       />
     </div>
-  </div>
+  </v-container>
 </template>
