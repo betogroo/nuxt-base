@@ -39,4 +39,6 @@
       </template>
     </v-list-item>
   </v-list>
+  <v-divider />
+  <TodoList />
 </template>
