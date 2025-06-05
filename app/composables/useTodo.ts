@@ -30,9 +30,9 @@ const useTodo = () => {
   ])
 
   function toggleCheck(id: number) {
-    const itemList = list.value.find((item) => item.id === id)
-    if (itemList) {
-      itemList.checked = !itemList.checked
+    const item = list.value.find((item) => item.id === id)
+    if (item) {
+      item.checked = !item.checked
     }
   }
 
