@@ -1,18 +1,21 @@
 <script setup lang="ts">
   import type { List } from '~/types'
+  interface Props {
+    list: List[]
+    name: string
+  }
   defineProps<Props>()
 
   const $emit = defineEmits<{
     'item-click': [id: number]
   }>()
-
-  interface Props {
-    list: List[]
-  }
 </script>
 
 <template>
   <v-list>
+    <v-list-subheader>
+      <h1 class="text-h5">{{ name }}</h1>
+    </v-list-subheader>
     <v-list-item
       v-for="item in list"
       :key="item.name"
@@ -30,5 +33,4 @@
       </template>
     </v-list-item>
   </v-list>
-  <v-list />
 </template>
