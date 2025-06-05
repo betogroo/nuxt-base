@@ -3,6 +3,7 @@
   const formData = ref<string>('')
   const handleSubmit = () => {
     addItem(formData.value)
+    formData.value = ''
   }
 </script>
 <template>

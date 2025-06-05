@@ -41,7 +41,8 @@ const useTodo = () => {
       name: item,
       id: crypto.randomUUID(),
     }
-    console.log(newData)
+    //list.value.push(newData)
+    list.value = [newData, ...list.value]
   }
 
   const checkedList = computed(() =>
