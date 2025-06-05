@@ -1,15 +1,25 @@
 <script setup lang="ts">
-  const { checkedList, uncheckedList, toggleCheck } = useTodo()
+  const { checkedList, uncheckedList, toggleCheck, addItem } = useTodo()
+  const formData = ref<string>('')
+  const handleSubmit = () => {
+    addItem(formData.value)
+  }
 </script>
 <template>
   <v-container max-width="480">
     <v-form class="d-flex align-center justify-space-around ga-3 mb-6">
       <v-text-field
+        v-model="formData"
         density="compact"
         :hide-details="true"
         variant="outlined"
       />
-      <v-btn>Adicionar</v-btn>
+      <v-btn
+        color="primary"
+        :disabled="!formData.length"
+        @click="handleSubmit"
+        >Adicionar</v-btn
+      >
     </v-form>
     <TodoList
       v-if="uncheckedList.length"

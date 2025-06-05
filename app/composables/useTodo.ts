@@ -35,6 +35,14 @@ const useTodo = () => {
       item.checked = !item.checked
     }
   }
+  const addItem = (item: string) => {
+    const newData: List = {
+      checked: false,
+      name: item,
+      id: crypto.randomUUID(),
+    }
+    console.log(newData)
+  }
 
   const checkedList = computed(() =>
     list.value.filter((item) => item.checked === true),
@@ -43,7 +51,7 @@ const useTodo = () => {
     list.value.filter((item) => !item.checked),
   )
 
-  return { list, toggleCheck, checkedList, uncheckedList }
+  return { list, toggleCheck, addItem, checkedList, uncheckedList }
 }
 
 export default useTodo
