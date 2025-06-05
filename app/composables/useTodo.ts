@@ -1,7 +1,8 @@
 import type { List } from '~/types'
+import { useStorage } from '@vueuse/core'
 
 const useTodo = () => {
-  const list = ref<List[]>([
+  const defaultList: List[] = [
     {
       id: crypto.randomUUID(),
       name: 'Escova de Dentes',
@@ -27,7 +28,11 @@ const useTodo = () => {
       name: 'Carregador',
       checked: false,
     },
-  ])
+  ]
+
+  const list = useStorage<List[]>('todo-list', defaultList, undefined, {
+    mergeDefaults: true,
+  })
 
   const toggleCheck = (id: string) => {
     const item = list.value.find((item) => item.id === id)
