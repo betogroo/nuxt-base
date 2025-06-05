@@ -30,9 +30,6 @@ const useTodo = () => {
   ])
 
   function toggleCheck(id: number) {
-    // aqui é para mostrar que a função é executada, porém itemList não é reativo com a prop
-    // utilizar evento
-    console.log(id)
     const itemList = list.value.find((item) => item.id === id)
     if (itemList) {
       itemList.checked = !itemList.checked
