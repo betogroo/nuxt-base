@@ -2,7 +2,9 @@
   import type { List } from '~/types'
   defineProps<Props>()
 
-  const { toggleCheck } = useTodo()
+  const $emit = defineEmits<{
+    'item-click': [id: number]
+  }>()
 
   interface Props {
     list: List[]
@@ -19,7 +21,7 @@
         item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
       "
       :ripple="false"
-      @click="toggleCheck(item.id)"
+      @click="$emit('item-click', item.id)"
     >
       <template #title>
         <span :class="item.checked ? 'text-decoration-line-through' : ''">{{

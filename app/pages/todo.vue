@@ -1,9 +1,15 @@
 <script setup lang="ts">
-  const { checkedList, uncheckedList } = useTodo()
+  const { checkedList, uncheckedList, toggleCheck } = useTodo()
 </script>
 <template>
   <div>
-    <TodoList :list="uncheckedList" />
-    <TodoList :list="checkedList" />
+    <TodoList
+      :list="uncheckedList"
+      @item-click="toggleCheck"
+    />
+    <TodoList
+      :list="checkedList"
+      @item-click="toggleCheck"
+    />
   </div>
 </template>
