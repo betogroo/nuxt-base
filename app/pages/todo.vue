@@ -40,5 +40,5 @@
     </v-list-item>
   </v-list>
   <v-divider />
-  <TodoList />
+  <TodoList :list="uncheckedList" />
 </template>

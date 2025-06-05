@@ -1,11 +1,17 @@
 <script setup lang="ts">
+  import type { List } from '~/composables/useTodo'
+
+  interface Props {
+    list: List[]
+  }
+  defineProps<Props>()
   const { toggleCheck } = useTodo()
 </script>
 
 <template>
   <v-list>
     <v-list-item
-      v-for="item in uncheckedList"
+      v-for="item in list"
       :key="item.name"
       :class="item.checked ? 'text-error ' : 'text-success'"
       :prepend-icon="
