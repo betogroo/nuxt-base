@@ -40,7 +40,14 @@ const useTodo = () => {
     }
   }
 
-  return { list, toggleCheck }
+  const checkedList = computed(() =>
+    list.value.filter((item) => item.checked === true),
+  )
+  const uncheckedList = computed(() =>
+    list.value.filter((item) => !item.checked),
+  )
+
+  return { list, toggleCheck, checkedList, uncheckedList }
 }
 
 export default useTodo
