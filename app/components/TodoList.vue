@@ -3,8 +3,9 @@
   interface Props {
     list: List[]
     name: string
+    notFoundMessage?: string
   }
-  defineProps<Props>()
+  const { notFoundMessage = 'Nenhum dado a exibir' } = defineProps<Props>()
 
   const $emit = defineEmits<{
     'item-click': [id: string]
@@ -12,25 +13,30 @@
 </script>
 
 <template>
-  <v-list>
-    <v-list-subheader>
-      <h1 class="text-h5">{{ name }}</h1>
-    </v-list-subheader>
-    <v-list-item
-      v-for="item in list"
-      :key="item.name"
-      :class="item.checked ? 'text-error ' : 'text-success'"
-      :prepend-icon="
-        item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
-      "
-      :ripple="false"
-      @click="$emit('item-click', item.id)"
-    >
-      <template #title>
-        <span :class="item.checked ? 'text-decoration-line-through' : ''">{{
-          item.name
-        }}</span>
+  <div>
+    <v-list>
+      <v-list-subheader>
+        <h1 class="text-h5">{{ list.length ? name : notFoundMessage }}</h1>
+      </v-list-subheader>
+      <template v-if="list.length">
+        <v-list-item
+          v-for="item in list"
+          :key="item.name"
+          :class="item.checked ? 'text-error ' : 'text-success'"
+          :prepend-icon="
+            item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
+          "
+          :ripple="false"
+          @click="$emit('item-click', item.id)"
+        >
+          <template #title>
+            <span :class="item.checked ? 'text-decoration-line-through' : ''">{{
+              item.name
+            }}</span>
+          </template>
+        </v-list-item>
       </template>
-    </v-list-item>
-  </v-list>
+    </v-list>
+    <v-divider class="mb-2" />
+  </div>
 </template>

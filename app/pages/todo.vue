@@ -43,35 +43,34 @@
 
     <div v-if="list.length">
       <TodoList
-        v-if="uncheckedList.length"
         :list="uncheckedList"
         name="Itens não Conferidos"
+        not-found-message="Nenhum item a conferir"
         @item-click="toggleCheck"
       />
-      <div v-else>Não há itens a conferir</div>
-      <div v-if="checkedList.length">
-        <v-divider />
-        <TodoList
-          :list="checkedList"
-          name="Itens Conferidos"
-          @item-click="toggleCheck"
-        />
+      <TodoList
+        :list="checkedList"
+        name="Itens Conferidos"
+        not-found-message="Nenhum item conferido"
+        @item-click="toggleCheck"
+      />
+      <div>
+        <v-btn
+          v-if="!readyToDelete"
+          block
+          color="error"
+          variant="outlined"
+          @click="handleDelete"
+          >Limpar Lista</v-btn
+        >
+        <v-btn
+          v-else
+          block
+          color="error"
+          @click="confirmDelete"
+          >Clique novamente para confirmar</v-btn
+        >
       </div>
-      <v-btn
-        v-if="!readyToDelete"
-        block
-        color="error"
-        variant="outlined"
-        @click="handleDelete"
-        >Limpar Lista</v-btn
-      >
-      <v-btn
-        v-else
-        block
-        color="error"
-        @click="confirmDelete"
-        >Clique novamente para confirmar</v-btn
-      >
     </div>
     <div
       v-else
