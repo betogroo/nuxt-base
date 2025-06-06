@@ -13,16 +13,6 @@
     addItem(formData.value)
     formData.value = ''
   }
-
-  const readyToDelete = ref(false)
-  const handleDelete = () => {
-    readyToDelete.value = true
-  }
-  const confirmDelete = () => {
-    if (!readyToDelete.value) return
-    clearList()
-    readyToDelete.value = false
-  }
 </script>
 <template>
   <v-container max-width="480">
@@ -54,23 +44,7 @@
         not-found-message="Nenhum item conferido"
         @item-click="toggleCheck"
       />
-      <div>
-        <v-btn
-          v-if="!readyToDelete"
-          block
-          color="error"
-          variant="outlined"
-          @click="handleDelete"
-          >Limpar Lista</v-btn
-        >
-        <v-btn
-          v-else
-          block
-          color="error"
-          @click="confirmDelete"
-          >Clique novamente para confirmar</v-btn
-        >
-      </div>
+      <DeleteButton @confirm-delete="clearList" />
     </div>
     <div
       v-else
