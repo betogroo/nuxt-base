@@ -1,5 +1,12 @@
 <script setup lang="ts">
-  const { checkedList, uncheckedList, toggleCheck, addItem } = useTodo()
+  const {
+    list,
+    checkedList,
+    uncheckedList,
+    toggleCheck,
+    addItem,
+    addDefaultList,
+  } = useTodo()
   const formData = ref<string>('')
   const handleSubmit = () => {
     addItem(formData.value)
@@ -22,25 +29,34 @@
         >Adicionar</v-btn
       >
     </v-form>
-    <TodoList
-      v-if="uncheckedList.length"
-      :list="uncheckedList"
-      name="Itens não Conferidos"
-      @item-click="toggleCheck"
-    />
-    <h1
-      v-else
-      class="text-subtitle-1"
-    >
-      Todos os itens já foram conferidos
-    </h1>
-    <div v-if="checkedList.length">
-      <v-divider />
+
+    <div v-if="list.length">
       <TodoList
-        :list="checkedList"
-        name="Itens Conferidos"
+        v-if="uncheckedList.length"
+        :list="uncheckedList"
+        name="Itens não Conferidos"
         @item-click="toggleCheck"
       />
+      <div v-else>Não há itens a conferir</div>
+      <div v-if="checkedList.length">
+        <v-divider />
+        <TodoList
+          :list="checkedList"
+          name="Itens Conferidos"
+          @item-click="toggleCheck"
+        />
+      </div>
+    </div>
+    <div
+      v-else
+      class="d-flex justify-space-between align-center"
+    >
+      <h1 class="text-subtitle-1">Não há tarefas cadastradas!</h1>
+      <v-btn
+        color="success"
+        @click="addDefaultList"
+        >Adicionar Padrão</v-btn
+      >
     </div>
   </v-container>
 </template>

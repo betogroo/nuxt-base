@@ -16,7 +16,7 @@ const useTodo = () => {
     {
       id: crypto.randomUUID(),
       name: 'Secador de Cabelo',
-      checked: true,
+      checked: false,
     },
     {
       id: crypto.randomUUID(),
@@ -30,7 +30,7 @@ const useTodo = () => {
     },
   ]
 
-  const list = useStorage<List[]>('todo-list', defaultList, undefined, {
+  const list = useStorage<List[]>('todo-list', [], undefined, {
     mergeDefaults: true,
   })
 
@@ -40,6 +40,9 @@ const useTodo = () => {
       item.checked = !item.checked
     }
   }
+  const addDefaultList = () => {
+    list.value = defaultList
+  }
   const addItem = (item: string) => {
     const newData: List = {
       checked: false,
@@ -47,7 +50,8 @@ const useTodo = () => {
       id: crypto.randomUUID(),
     }
     //list.value.push(newData)
-    list.value = [newData, ...list.value]
+    //list.value = [newData, ...list.value]
+    list.value.unshift(newData)
   }
 
   const checkedList = computed(() =>
@@ -57,7 +61,14 @@ const useTodo = () => {
     list.value.filter((item) => !item.checked),
   )
 
-  return { list, toggleCheck, addItem, checkedList, uncheckedList }
+  return {
+    list,
+    toggleCheck,
+    addItem,
+    checkedList,
+    uncheckedList,
+    addDefaultList,
+  }
 }
 
 export default useTodo
