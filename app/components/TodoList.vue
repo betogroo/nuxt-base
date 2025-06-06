@@ -21,7 +21,7 @@
       <template v-if="list.length">
         <v-list-item
           v-for="item in list"
-          :key="item.name"
+          :key="item.id"
           :class="item.checked ? 'text-error ' : 'text-success'"
           :prepend-icon="
             item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
