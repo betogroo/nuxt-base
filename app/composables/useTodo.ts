@@ -54,6 +54,10 @@ const useTodo = () => {
     list.value.unshift(newData)
   }
 
+  const clearList = () => {
+    list.value = []
+  }
+
   const checkedList = computed(() =>
     list.value.filter((item) => item.checked === true),
   )
@@ -68,6 +72,7 @@ const useTodo = () => {
     checkedList,
     uncheckedList,
     addDefaultList,
+    clearList,
   }
 }
 

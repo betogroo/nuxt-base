@@ -6,11 +6,22 @@
     toggleCheck,
     addItem,
     addDefaultList,
+    clearList,
   } = useTodo()
   const formData = ref<string>('')
   const handleSubmit = () => {
     addItem(formData.value)
     formData.value = ''
+  }
+
+  const readyToDelete = ref(false)
+  const handleDelete = () => {
+    readyToDelete.value = true
+  }
+  const confirmDelete = () => {
+    if (!readyToDelete.value) return
+    clearList()
+    readyToDelete.value = false
   }
 </script>
 <template>
@@ -46,12 +57,27 @@
           @item-click="toggleCheck"
         />
       </div>
+      <v-btn
+        v-if="!readyToDelete"
+        block
+        color="error"
+        variant="outlined"
+        @click="handleDelete"
+        >Limpar Lista</v-btn
+      >
+      <v-btn
+        v-else
+        block
+        color="error"
+        @click="confirmDelete"
+        >Clique novamente para confirmar</v-btn
+      >
     </div>
     <div
       v-else
       class="d-flex justify-space-between align-center"
     >
-      <h1 class="text-subtitle-1">Não há tarefas cadastradas!</h1>
+      <h1 class="text-subtitle-1">Nenhuma tarefa!</h1>
       <v-btn
         color="success"
         @click="addDefaultList"
