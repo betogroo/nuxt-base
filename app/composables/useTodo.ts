@@ -30,9 +30,7 @@ const useTodo = () => {
     },
   ]
 
-  const list = useStorage<List[]>('todo-list', [], undefined, {
-    mergeDefaults: true,
-  })
+  const list = useStorage<List[]>('todo-list', [])
 
   const toggleCheck = (id: string) => {
     const item = list.value.find((item) => item.id === id)
@@ -40,8 +38,17 @@ const useTodo = () => {
       item.checked = !item.checked
     }
   }
+  const clearList = () => {
+    list.value = []
+    localStorage.removeItem('todo-list')
+  }
   const addDefaultList = () => {
-    list.value = defaultList
+    clearList()
+    list.value = defaultList.map((item) => ({
+      id: crypto.randomUUID(), // novo ID
+      name: item.name,
+      checked: false,
+    }))
   }
   const addItem = (item: string) => {
     const newData: List = {
@@ -52,10 +59,6 @@ const useTodo = () => {
     //list.value.push(newData)
     //list.value = [newData, ...list.value]
     list.value.unshift(newData)
-  }
-
-  const clearList = () => {
-    list.value = []
   }
 
   const checkedList = computed(() =>
