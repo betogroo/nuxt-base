@@ -42,7 +42,6 @@ const useTodo = () => {
   }
   const clearList = () => {
     list.value = []
-    localStorage.removeItem('todo-list')
   }
   const addDefaultList = () => {
     clearList()
