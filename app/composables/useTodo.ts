@@ -62,6 +62,19 @@ const useTodo = () => {
     list.value.unshift(newData)
   }
 
+  const selectAll = () => {
+    list.value = list.value.map((item) => ({
+      ...item,
+      checked: true,
+    }))
+  }
+  const selectNone = () => {
+    list.value = list.value.map((item) => ({
+      ...item,
+      checked: false,
+    }))
+  }
+
   const checkedList = computed(() =>
     list.value.filter((item) => item.checked === true),
   )
@@ -77,6 +90,8 @@ const useTodo = () => {
     uncheckedList,
     addDefaultList,
     clearList,
+    selectAll,
+    selectNone,
   }
 }
 

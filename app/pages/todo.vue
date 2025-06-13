@@ -7,6 +7,8 @@
     addItem,
     addDefaultList,
     clearList,
+    selectAll,
+    selectNone,
   } = useTodo()
   const formData = ref<string>('')
   const handleSubmit = () => {
@@ -30,13 +32,22 @@
         >Adicionar</v-btn
       >
     </v-form>
-
     <div v-if="list.length">
+      <v-btn
+        icon="mdi-checkbox-multiple-marked-outline"
+        variant="text"
+        @click="selectAll"
+      />
       <TodoList
         :list="uncheckedList"
         name="Itens não Conferidos"
         not-found-message="Nenhum item a conferir"
         @item-click="toggleCheck"
+      />
+      <v-btn
+        icon="mdi-checkbox-blank-off-outline"
+        variant="text"
+        @click="selectNone"
       />
       <TodoList
         :list="checkedList"
