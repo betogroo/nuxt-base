@@ -2,6 +2,7 @@
   const {
     decreaseValue,
     increaseValue,
+    setMaxEntry,
     displayNumber,
     isEmpty,
     isFull,
@@ -9,18 +10,15 @@
   } = useCounter()
 
   const isMaxEntryModalActive = ref(false)
+  const formValue = ref(0)
 
-  const handleSetMaxEntry = () => {
+  const handleOpenModal = () => {
+    formValue.value = maxEntry.value
     isMaxEntryModalActive.value = true
   }
 
-  const formValue = ref(0)
-  const setMaxEntry = () => {
-    if (formValue.value < 1) return
-    maxEntry.value = formValue.value
-    if (displayNumber.value > maxEntry.value) {
-      displayNumber.value = formValue.value
-    }
+  const handleSetMaxEntry = (newValue: number) => {
+    setMaxEntry(newValue)
     isMaxEntryModalActive.value = false
   }
 </script>
@@ -41,7 +39,7 @@
               :placeholder="maxEntry.toString()"
               variant="outlined"
             />
-            <v-btn @click="setMaxEntry">Salvar</v-btn>
+            <v-btn @click="handleSetMaxEntry(formValue)">Salvar</v-btn>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -76,7 +74,7 @@
               density="compact"
               size="xx-small"
               variant="text"
-              @click="handleSetMaxEntry"
+              @click="handleOpenModal"
               >Alterar</v-btn
             >
           </h4>
