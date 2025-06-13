@@ -30,7 +30,9 @@ const useTodo = () => {
     },
   ]
 
-  const list = useStorage<List[]>('todo-list', [])
+  const list = useStorage<List[]>('todo-list', [], undefined, {
+    initOnMounted: true,
+  })
 
   const toggleCheck = (id: string) => {
     const item = list.value.find((item) => item.id === id)
