@@ -38,17 +38,18 @@
         variant="text"
         @click="selectAll"
       />
+      <v-btn
+        icon="mdi-checkbox-blank-off-outline"
+        variant="text"
+        @click="selectNone"
+      />
       <TodoList
         :list="uncheckedList"
         name="Itens não Conferidos"
         not-found-message="Nenhum item a conferir"
         @item-click="toggleCheck"
       />
-      <v-btn
-        icon="mdi-checkbox-blank-off-outline"
-        variant="text"
-        @click="selectNone"
-      />
+
       <TodoList
         :list="checkedList"
         name="Itens Conferidos"
