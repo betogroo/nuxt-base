@@ -15,6 +15,10 @@
     addItem(formData.value)
     formData.value = ''
   }
+
+  const handleDelete = (id: string) => {
+    console.log('Delete', id)
+  }
 </script>
 <template>
   <v-container max-width="480">
@@ -47,6 +51,7 @@
         :list="uncheckedList"
         name="Itens não Conferidos"
         not-found-message="Nenhum item a conferir"
+        @delete-click="handleDelete"
         @item-click="toggleCheck"
       />
 
@@ -54,6 +59,7 @@
         :list="checkedList"
         name="Itens Conferidos"
         not-found-message="Nenhum item conferido"
+        @delete-click="handleDelete"
         @item-click="toggleCheck"
       />
       <DeleteButton @confirm-delete="clearList" />

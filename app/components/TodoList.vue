@@ -9,6 +9,7 @@
 
   const $emit = defineEmits<{
     'item-click': [id: string]
+    'delete-click': [id: string]
   }>()
 </script>
 
@@ -34,6 +35,12 @@
               item.name
             }}</span>
           </template>
+          <template #append
+            ><v-btn
+              icon="mdi-delete"
+              variant="text"
+              @click.stop="$emit('delete-click', item.id)"
+          /></template>
         </v-list-item>
       </template>
     </v-list>
