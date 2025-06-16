@@ -2,5 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint']
+  modules: ['@nuxt/eslint', 'vuetify-nuxt-module', '@vueuse/nuxt'],
+  future: {
+    compatibilityVersion: 4,
+  },
 })
