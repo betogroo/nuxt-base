@@ -9,6 +9,7 @@
     clearList,
     selectAll,
     selectNone,
+    deleteItem,
   } = useTodo()
   const formData = ref<string>('')
   const handleSubmit = () => {
@@ -17,7 +18,7 @@
   }
 
   const handleDelete = (id: string) => {
-    console.log('Delete', id)
+    deleteItem(id)
   }
 </script>
 <template>

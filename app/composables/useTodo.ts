@@ -43,6 +43,10 @@ const useTodo = () => {
   const clearList = () => {
     list.value = []
   }
+  const deleteItem = (id: string) => {
+    list.value = list.value.filter((item) => item.id !== id)
+  }
+
   const addDefaultList = () => {
     clearList()
     list.value = defaultList.map((item) => ({
@@ -92,6 +96,7 @@ const useTodo = () => {
     clearList,
     selectAll,
     selectNone,
+    deleteItem,
   }
 }
 
