@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary">
+      <v-app-bar-nav-icon />
       <v-app-bar-title>My Nuxt App</v-app-bar-title>
       <v-spacer />
       <v-btn
