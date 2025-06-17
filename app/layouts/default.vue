@@ -26,11 +26,15 @@
       icon: 'mdi-information',
     },
   ]
+  const nav = ref(false)
+  const toggleDrawer = () => {
+    nav.value = !nav.value
+  }
 </script>
 <template>
   <v-app>
     <v-app-bar color="primary">
-      <v-app-bar-nav-icon />
+      <v-app-bar-nav-icon @click.stop="toggleDrawer" />
       <v-app-bar-title>My Nuxt App</v-app-bar-title>
       <v-spacer />
       <v-btn
@@ -41,7 +45,7 @@
         >{{ item.title }}</v-btn
       >
     </v-app-bar>
-    <v-navigation-drawer>
+    <v-navigation-drawer v-model="nav">
       <template #prepend>
         <v-list-item
           lines="three"
