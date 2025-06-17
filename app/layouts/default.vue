@@ -2,23 +2,28 @@
   interface NavItem {
     title: string
     route: string
+    icon: string
   }
   const navItems: NavItem[] = [
     {
       title: 'Home',
       route: '',
+      icon: 'mdi-home-account',
     },
     {
       title: 'Limitador de Acessos',
       route: 'counter',
+      icon: 'mdi-counter',
     },
     {
       title: 'Todo',
       route: 'todo',
+      icon: 'mdi-format-list-checks',
     },
     {
       title: 'About',
       route: 'about',
+      icon: 'mdi-information',
     },
   ]
 </script>
@@ -45,8 +50,20 @@
           title="Sérgio Moreno"
         />
       </template>
-
       <v-divider />
+
+      <v-list
+        density="compact"
+        nav
+      >
+        <v-list-item
+          v-for="item in navItems"
+          :key="item.title"
+          :prepend-icon="item.icon"
+          :title="item.title"
+          :to="`/${item.route}`"
+        />
+      </v-list>
     </v-navigation-drawer>
     <v-main>
       <v-container>
