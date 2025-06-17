@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary">
-      <v-toolbar-title>My Nuxt App</v-toolbar-title>
+      <v-app-bar-title>My Nuxt App</v-app-bar-title>
       <v-spacer />
       <v-btn
         text
