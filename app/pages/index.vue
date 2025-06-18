@@ -1,6 +1,7 @@
 <script setup lang="ts">
   definePageMeta({
     title: 'Home',
+    icon: 'mdi-home-account',
   })
 </script>
 <template>

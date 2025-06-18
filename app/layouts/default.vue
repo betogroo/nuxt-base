@@ -40,6 +40,7 @@
         <v-list-item
           v-for="item in navItems"
           :key="item.path"
+          :prepend-icon="item.meta.icon"
           :title="item.meta.title"
           :to="item.path"
         />

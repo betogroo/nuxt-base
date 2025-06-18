@@ -1,6 +1,7 @@
 <script setup lang="ts">
   definePageMeta({
     title: 'About',
+    icon: 'mdi-information',
   })
 </script>
 <template>

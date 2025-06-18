@@ -1,6 +1,7 @@
 <script setup lang="ts">
   definePageMeta({
     title: 'Limitador de Acessos',
+    icon: 'mdi-counter',
   })
   const {
     decreaseValue,

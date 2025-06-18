@@ -1,6 +1,7 @@
 <script setup lang="ts">
   definePageMeta({
     title: 'Tarefas',
+    icon: 'mdi-format-list-checks',
   })
   const {
     list,
