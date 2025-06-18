@@ -2,6 +2,7 @@
   definePageMeta({
     title: 'Limitador de Acessos',
     icon: 'mdi-counter',
+    order: 2,
   })
   const {
     decreaseValue,

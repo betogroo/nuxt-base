@@ -2,6 +2,7 @@
   definePageMeta({
     title: 'Tarefas',
     icon: 'mdi-format-list-checks',
+    order: 3,
   })
   const {
     list,

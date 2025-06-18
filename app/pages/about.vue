@@ -2,6 +2,7 @@
   definePageMeta({
     title: 'About',
     icon: 'mdi-information',
+    order: 4,
   })
 </script>
 <template>

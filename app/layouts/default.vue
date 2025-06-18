@@ -4,6 +4,7 @@
     router
       .getRoutes()
       .filter((route) => route.meta.title)
+      .sort((a, b) => (a.meta.order || 0) - (b.meta.order || 0))
       .map((route) => ({
         title: route.meta.title,
         icon: route.meta.icon,
