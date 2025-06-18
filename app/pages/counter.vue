@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  definePageMeta({
+    title: 'Limitador de Acessos',
+  })
   const {
     decreaseValue,
     increaseValue,

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  definePageMeta({
+    title: 'Tarefas',
+  })
   const {
     list,
     checkedList,
