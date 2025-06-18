@@ -1,7 +1,7 @@
 <script setup lang="ts">
   interface NavItem {
     title: string
-    route: string
+    path: string
     icon: string
   }
 
@@ -11,22 +11,22 @@
   const navItems: NavItem[] = [
     {
       title: 'Home',
-      route: '',
+      path: '',
       icon: 'mdi-home-account',
     },
     {
       title: 'Limitador de Acessos',
-      route: 'counter',
+      path: 'counter',
       icon: 'mdi-counter',
     },
     {
       title: 'Todo',
-      route: 'todo',
+      path: 'todo',
       icon: 'mdi-format-list-checks',
     },
     {
       title: 'About',
-      route: 'about',
+      path: 'about',
       icon: 'mdi-information',
     },
   ]
@@ -45,7 +45,7 @@
         v-for="item in navItems"
         :key="item.title"
         text
-        :to="`/${item.route}`"
+        :to="`/${item.path}`"
         >{{ item.title }}</v-btn
       >
     </v-app-bar>
@@ -69,7 +69,7 @@
           :key="item.title"
           :prepend-icon="item.icon"
           :title="item.title"
-          :to="`/${item.route}`"
+          :to="`/${item.path}`"
         />
       </v-list>
     </v-navigation-drawer>
