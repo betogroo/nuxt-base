@@ -1,7 +1,15 @@
 <script setup lang="ts">
   const router = useRouter()
-  const navItems = router.getRoutes()
-  console.log(navItems)
+  const navItems = computed(() =>
+    router
+      .getRoutes()
+      .filter((route) => route.meta.title)
+      .map((route) => ({
+        title: route.meta.title,
+        icon: route.meta.icon,
+        path: route.path,
+      })),
+  )
 
   const nav = ref(false)
   const toggleDrawer = () => {
@@ -19,7 +27,7 @@
         :key="item.path"
         text
         :to="item.path"
-        >{{ item.meta.title }}</v-btn
+        >{{ item.title }}</v-btn
       >
     </v-app-bar>
     <v-navigation-drawer v-model="nav">
@@ -40,8 +48,8 @@
         <v-list-item
           v-for="item in navItems"
           :key="item.path"
-          :prepend-icon="item.meta.icon"
-          :title="item.meta.title"
+          :prepend-icon="item.icon"
+          :title="item.title"
           :to="item.path"
         />
       </v-list>
