@@ -4,6 +4,10 @@
     route: string
     icon: string
   }
+
+  const router = useRouter()
+  console.log(router.getRoutes())
+
   const navItems: NavItem[] = [
     {
       title: 'Home',
