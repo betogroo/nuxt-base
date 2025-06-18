@@ -11,22 +11,22 @@
   const navItems: NavItem[] = [
     {
       title: 'Home',
-      path: '',
+      path: '/',
       icon: 'mdi-home-account',
     },
     {
       title: 'Limitador de Acessos',
-      path: 'counter',
+      path: '/counter',
       icon: 'mdi-counter',
     },
     {
       title: 'Todo',
-      path: 'todo',
+      path: '/todo',
       icon: 'mdi-format-list-checks',
     },
     {
       title: 'About',
-      path: 'about',
+      path: '/about',
       icon: 'mdi-information',
     },
   ]
@@ -45,7 +45,7 @@
         v-for="item in navItems"
         :key="item.title"
         text
-        :to="`/${item.path}`"
+        :to="item.path"
         >{{ item.title }}</v-btn
       >
     </v-app-bar>
@@ -69,7 +69,7 @@
           :key="item.title"
           :prepend-icon="item.icon"
           :title="item.title"
-          :to="`/${item.path}`"
+          :to="item.path"
         />
       </v-list>
     </v-navigation-drawer>
