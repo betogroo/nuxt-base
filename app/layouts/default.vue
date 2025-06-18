@@ -1,35 +1,8 @@
 <script setup lang="ts">
-  interface NavItem {
-    title: string
-    path: string
-    icon: string
-  }
-
   const router = useRouter()
-  console.log(router.getRoutes())
+  const navItems = router.getRoutes()
+  console.log(navItems)
 
-  const navItems: NavItem[] = [
-    {
-      title: 'Home',
-      path: '/',
-      icon: 'mdi-home-account',
-    },
-    {
-      title: 'Limitador de Acessos',
-      path: '/counter',
-      icon: 'mdi-counter',
-    },
-    {
-      title: 'Todo',
-      path: '/todo',
-      icon: 'mdi-format-list-checks',
-    },
-    {
-      title: 'About',
-      path: '/about',
-      icon: 'mdi-information',
-    },
-  ]
   const nav = ref(false)
   const toggleDrawer = () => {
     nav.value = !nav.value
@@ -43,10 +16,10 @@
       <v-spacer />
       <v-btn
         v-for="item in navItems"
-        :key="item.title"
+        :key="item.path"
         text
         :to="item.path"
-        >{{ item.title }}</v-btn
+        >{{ item.meta.title }}</v-btn
       >
     </v-app-bar>
     <v-navigation-drawer v-model="nav">
@@ -66,9 +39,8 @@
       >
         <v-list-item
           v-for="item in navItems"
-          :key="item.title"
-          :prepend-icon="item.icon"
-          :title="item.title"
+          :key="item.path"
+          :title="item.meta.title"
           :to="item.path"
         />
       </v-list>
