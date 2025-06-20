@@ -19,18 +19,11 @@
 </script>
 <template>
   <v-app>
-    <v-app-bar color="primary">
-      <v-app-bar-nav-icon @click.stop="toggleDrawer" />
-      <v-app-bar-title>My Nuxt App</v-app-bar-title>
-      <v-spacer />
-      <v-btn
-        v-for="item in navItems"
-        :key="item.path"
-        text
-        :to="item.path"
-        >{{ item.title }}</v-btn
-      >
-    </v-app-bar>
+    <app-navbar
+      :menu-items="navItems"
+      @drawer="toggleDrawer"
+    />
+
     <v-navigation-drawer v-model="nav">
       <template #prepend>
         <v-list-item
