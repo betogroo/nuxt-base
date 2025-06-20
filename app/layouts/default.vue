@@ -35,9 +35,9 @@
       <template #prepend>
         <v-list-item
           lines="three"
-          prepend-avatar="https://avatar.iran.liara.run/public/boy"
-          subtitle="sergioaroudo@gmail.com"
-          title="Sérgio Moreno"
+          prepend-avatar="https://randomuser.me/api/portraits/women/33.jpg"
+          subtitle="mcgarcia@gmail.com"
+          title="Maria Costa Garcia"
         />
       </template>
       <v-divider />
