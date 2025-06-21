@@ -19,35 +19,15 @@
 </script>
 <template>
   <v-app>
-    <app-navbar
+    <app-nav-bar
       :menu-items="navItems"
       @drawer="toggleDrawer"
     />
 
-    <v-navigation-drawer v-model="nav">
-      <template #prepend>
-        <v-list-item
-          lines="three"
-          prepend-avatar="https://randomuser.me/api/portraits/women/33.jpg"
-          subtitle="mcgarcia@gmail.com"
-          title="Maria Costa Garcia"
-        />
-      </template>
-      <v-divider />
-
-      <v-list
-        density="compact"
-        nav
-      >
-        <v-list-item
-          v-for="item in navItems"
-          :key="item.path"
-          :prepend-icon="item.icon"
-          :title="item.title"
-          :to="item.path"
-        />
-      </v-list>
-    </v-navigation-drawer>
+    <app-nav-drawer
+      v-model="nav"
+      :menu-items="navItems"
+    />
     <v-main>
       <v-container>
         <slot />
