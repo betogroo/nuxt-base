@@ -12,9 +12,9 @@
       })),
   )
 
-  const nav = ref(false)
+  const isDrawerActive = ref(false)
   const toggleDrawer = () => {
-    nav.value = !nav.value
+    isDrawerActive.value = !isDrawerActive.value
   }
 </script>
 <template>
@@ -25,7 +25,7 @@
     />
 
     <app-nav-drawer
-      v-model:drawer="nav"
+      v-model:drawer="isDrawerActive"
       :menu-items="navItems"
     />
     <v-main>

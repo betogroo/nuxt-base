@@ -3,25 +3,14 @@
 
   interface Props {
     menuItems: MenuItem[]
-    drawer: boolean
   }
 
   const props = defineProps<Props>()
-  const $emit = defineEmits<{
-    (event: 'update:drawer', value: boolean): void
-  }>()
-
-  // Função para atualizar o drawer (padrão do v-model)
-  const updateDrawer = (value: boolean) => {
-    $emit('update:drawer', value)
-  }
+  const isDrawerActive = defineModel<boolean>('drawer')
 </script>
 
 <template>
-  <v-navigation-drawer
-    :model-value="props.drawer"
-    @update:model-value="updateDrawer"
-  >
+  <v-navigation-drawer v-model="isDrawerActive">
     <template #prepend>
       <v-list-item
         lines="three"
