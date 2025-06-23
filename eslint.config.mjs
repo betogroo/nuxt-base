@@ -18,7 +18,7 @@ export default withNuxt({
     'vue/define-macros-order': [
       'error',
       {
-        order: ['defineProps', 'defineEmits'],
+        order: ['defineOptions', 'defineProps', 'defineEmits'],
       },
     ],
     'vue/attributes-order': [
