@@ -1,15 +1,27 @@
 <script setup lang="ts">
   import type { MenuItem } from '~/types'
 
-  defineProps<Props>()
-  const drawer = defineModel<boolean>()
   interface Props {
     menuItems: MenuItem[]
+    drawer: boolean
+  }
+
+  const props = defineProps<Props>()
+  const $emit = defineEmits<{
+    (event: 'update:drawer', value: boolean): void
+  }>()
+
+  // Função para atualizar o drawer (padrão do v-model)
+  const updateDrawer = (value: boolean) => {
+    $emit('update:drawer', value)
   }
 </script>
 
 <template>
-  <v-navigation-drawer v-model="drawer">
+  <v-navigation-drawer
+    :model-value="props.drawer"
+    @update:model-value="updateDrawer"
+  >
     <template #prepend>
       <v-list-item
         lines="three"
@@ -25,7 +37,7 @@
       nav
     >
       <v-list-item
-        v-for="item in menuItems"
+        v-for="item in props.menuItems"
         :key="item.path"
         :prepend-icon="item.icon"
         :title="item.title"

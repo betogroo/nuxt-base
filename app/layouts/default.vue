@@ -19,13 +19,13 @@
 </script>
 <template>
   <v-app>
-    <app-nav-bar
+    <app-navbar
       :menu-items="navItems"
       @drawer="toggleDrawer"
     />
 
     <app-nav-drawer
-      v-model="nav"
+      v-model:drawer="nav"
       :menu-items="navItems"
     />
     <v-main>
