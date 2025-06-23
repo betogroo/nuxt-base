@@ -1,75 +1,106 @@
-# Nuxt Minimal Starter
+# 📌 Estrutura de Pastas - Projeto Nuxt 4 com TypeScript
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## ✅ Visão Geral da Estrutura:
 
-## Setup
-
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+app/
+ ┣ components/
+ ┃ ┣ app/
+ ┃ ┃ ┣ nav-drawer.vue
+ ┃ ┃ ┗ navbar.vue
+ ┃ ┣ delete-button.vue
+ ┃ ┗ todo-list.vue
+ ┣ composables/
+ ┃ ┣ use-counter.ts
+ ┃ ┣ use-nav-drawer.ts
+ ┃ ┗ use-todo.ts
+ ┣ layouts/
+ ┃ ┗ default.vue
+ ┣ pages/
+ ┃ ┣ about.vue
+ ┃ ┣ counter.vue
+ ┃ ┣ index.vue
+ ┃ ┗ todo.vue
+ ┣ types/
+ ┃ ┣ app.ts
+ ┃ ┣ index.ts
+ ┃ ┗ todo.ts
+ ┗ app.vue
 ```
 
-## Development Server
+## ✅ Detalhes de cada pasta:
 
-Start the development server on `http://localhost:3000`:
+### `/components/`
 
-```bash
-# npm
-npm run dev
+- Contém os **componentes Vue reutilizáveis**.
+- Nome dos arquivos em **kebab-case**.
+- Subpasta `/app/` para **componentes específicos da aplicação**, como Navbar e Drawer.
 
-# pnpm
-pnpm dev
+### `/composables/`
 
-# yarn
-yarn dev
+- Funções de Composition API reutilizáveis.
+- Nome dos arquivos: **kebab-case**, sempre com prefixo `use-`.
+- Nome das funções: **camelCase**, com prefixo `use`.
 
-# bun
-bun run dev
+### `/layouts/`
+
+- Layouts de página do Nuxt.
+- O Nuxt reconhece automaticamente layouts como `default.vue`.
+
+### `/pages/`
+
+- Arquivos que representam rotas.
+- Nome dos arquivos em **kebab-case**, refletindo as URLs.
+
+### `/types/`
+
+- Tipos TypeScript.
+- Nome dos arquivos: **kebab-case**, com tipos internos em **PascalCase**.
+- Exemplo de export centralizado em `/types/index.ts`:
+
+```ts
+export * from './todo'
+export * from './app'
 ```
 
-## Production
+### `app.vue`
 
-Build the application for production:
+- Componente raiz da aplicação Nuxt.
 
-```bash
-# npm
-npm run build
+## ✅ Convenções Gerais Adotadas:
 
-# pnpm
-pnpm build
+| Categoria                   | Convenção                   |
+| --------------------------- | --------------------------- |
+| Nomes de arquivos de página | kebab-case                  |
+| Nomes de composables        | kebab-case + prefixo `use-` |
+| Nomes de componentes        | kebab-case                  |
+| Tipos TypeScript            | PascalCase                  |
+| Funções de composables      | camelCase + prefixo `use`   |
+| Eventos customizados        | kebab-case                  |
+| Props                       | camelCase                   |
 
-# yarn
-yarn build
+## ✅ Exemplo de Composable:
 
-# bun
-bun run build
+```ts
+// composables/use-counter.ts
+export const useCounter = () => {
+  const count = ref(0)
+  const increment = () => count.value++
+
+  return { count, increment }
+}
 ```
 
-Locally preview production build:
+## ✅ Exemplo de componente com v-model customizado:
 
-```bash
-# npm
-npm run preview
+```vue
+<script setup lang="ts">
+  const isDrawerActive = defineModel<boolean>('drawer')
+</script>
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+<template>
+  <v-navigation-drawer v-model="isDrawerActive">
+    <!-- conteúdo -->
+  </v-navigation-drawer>
+</template>
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
