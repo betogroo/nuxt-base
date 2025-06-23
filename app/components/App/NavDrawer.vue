@@ -1,11 +1,15 @@
 <script setup lang="ts">
   import type { MenuItem } from '~/types'
-
   interface Props {
     menuItems: MenuItem[]
   }
 
+  defineOptions({
+    name: 'NavDrawer',
+  })
+
   const props = defineProps<Props>()
+
   const isDrawerActive = defineModel<boolean>('drawer')
 </script>
 

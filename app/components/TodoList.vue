@@ -5,8 +5,11 @@
     name: string
     notFoundMessage?: string
   }
-  const { notFoundMessage = 'Nenhum dado a exibir' } = defineProps<Props>()
 
+  defineOptions({
+    name: 'TodoList',
+  })
+  const { notFoundMessage = 'Nenhum dado a exibir' } = defineProps<Props>()
   const $emit = defineEmits<{
     'item-click': [id: string]
     'delete-click': [id: string]

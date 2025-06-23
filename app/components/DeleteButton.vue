@@ -1,4 +1,8 @@
 <script setup lang="ts">
+  defineOptions({
+    name: 'DeleteButton',
+  })
+
   const $emit = defineEmits<{
     'confirm-delete': []
   }>()

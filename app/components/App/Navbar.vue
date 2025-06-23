@@ -3,6 +3,10 @@
   interface Props {
     menuItems: MenuItem[]
   }
+  defineOptions({
+    name: 'NavBar',
+  })
+
   defineProps<Props>()
 
   const $emit = defineEmits<{
