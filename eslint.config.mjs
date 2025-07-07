@@ -45,13 +45,14 @@ export default withNuxt({
         alphabetical: true,
       },
     ],
-    'vue/max-attributes-per-line': [
+    'vue/max-attributes-per-line': 'off',
+    /*  'vue/max-attributes-per-line': [
       'error',
       {
         singleline: { max: 1 },
         multiline: { max: 1 },
       },
-    ],
+    ], */
     'vue/no-multiple-template-root': 'off',
     'vue/multi-word-component-names': 'off',
   },
