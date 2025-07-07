@@ -23,8 +23,7 @@
 
 <template>
   <div>
-    <v-dialog v-model="isMaxEntryModalActive"
-width="400">
+    <v-dialog v-model="isMaxEntryModalActive" width="400">
       <v-card max-width="400">
         <v-card-text>
           <v-form class="d-flex align-center ga-3">
@@ -39,8 +38,7 @@ width="400">
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn block
-@click="isMaxEntryModalActive = false">Cancelar</v-btn>
+          <v-btn block @click="isMaxEntryModalActive = false">Cancelar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,9 +61,7 @@ width="400">
           <h2 class="text-h6">Pessoas Entraram</h2>
           <h4 class="text-caption align-center">
             max: {{ maxEntry }} -
-            <v-btn
-density="compact" size="xx-small"
-variant="text" @click="handleOpenModal"
+            <v-btn density="compact" size="xx-small" variant="text" @click="handleOpenModal"
               >Alterar</v-btn
             >
           </h4>
