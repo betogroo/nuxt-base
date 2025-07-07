@@ -18,6 +18,11 @@
   },
   "devDependencies": {
     "@vueuse/nuxt": "^13.3.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
     "vuetify-nuxt-module": "^0.18.6"
   }
 }
