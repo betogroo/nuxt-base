@@ -4,15 +4,8 @@
     icon: 'mdi-counter',
     order: 2,
   })
-  const {
-    decreaseValue,
-    increaseValue,
-    setMaxEntry,
-    displayNumber,
-    isEmpty,
-    isFull,
-    maxEntry,
-  } = useCounter()
+  const { decreaseValue, increaseValue, setMaxEntry, displayNumber, isEmpty, isFull, maxEntry } =
+    useCounter()
 
   const isMaxEntryModalActive = ref(false)
   const formValue = ref(0)
@@ -30,10 +23,8 @@
 
 <template>
   <div>
-    <v-dialog
-      v-model="isMaxEntryModalActive"
-      width="400"
-    >
+    <v-dialog v-model="isMaxEntryModalActive"
+width="400">
       <v-card max-width="400">
         <v-card-text>
           <v-form class="d-flex align-center ga-3">
@@ -48,11 +39,8 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn
-            block
-            @click="isMaxEntryModalActive = false"
-            >Cancelar</v-btn
-          >
+          <v-btn block
+@click="isMaxEntryModalActive = false">Cancelar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -76,10 +64,8 @@
           <h4 class="text-caption align-center">
             max: {{ maxEntry }} -
             <v-btn
-              density="compact"
-              size="xx-small"
-              variant="text"
-              @click="handleOpenModal"
+density="compact" size="xx-small"
+variant="text" @click="handleOpenModal"
               >Alterar</v-btn
             >
           </h4>

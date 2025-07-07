@@ -25,11 +25,7 @@
     <v-app-bar-title>My Nuxt App</v-app-bar-title>
     <v-spacer />
     <v-btn
-      v-for="item in menuItems"
-      :key="item.path"
-      text
-      :to="item.path"
-      >{{ item.title }}</v-btn
-    >
+v-for="item in menuItems" :key="item.path"
+text :to="item.path">{{ item.title }}</v-btn>
   </v-app-bar>
 </template>

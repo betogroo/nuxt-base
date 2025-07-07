@@ -21,18 +21,12 @@
 
 <template>
   <v-btn
-    v-if="!readyToDelete"
-    block
-    color="error"
-    variant="outlined"
-    @click="handleDelete"
+v-if="!readyToDelete"
+block color="error" variant="outlined"
+@click="handleDelete"
     >Limpar Lista</v-btn
   >
   <v-btn
-    v-else
-    block
-    color="error"
-    @click="confirmDelete"
-    >Clique novamente para confirmar</v-btn
-  >
+v-else block
+color="error" @click="confirmDelete">Clique novamente para confirmar</v-btn>
 </template>

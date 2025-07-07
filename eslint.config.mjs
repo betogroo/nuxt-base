@@ -21,10 +21,7 @@ export default withNuxt({
 
     // suas regras Vue / TS existentes
     'vue/valid-v-slot': ['error', { allowModifiers: true }],
-    'vue/block-order': [
-      'error',
-      { order: ['script[setup]', 'template', 'style'] },
-    ],
+    'vue/block-order': ['error', { order: ['script[setup]', 'template', 'style'] }],
     'vue/define-macros-order': [
       'error',
       { order: ['defineOptions', 'defineProps', 'defineEmits'] },

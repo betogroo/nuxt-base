@@ -79,12 +79,8 @@ const useTodo = () => {
     }))
   }
 
-  const checkedList = computed(() =>
-    list.value.filter((item) => item.checked === true),
-  )
-  const uncheckedList = computed(() =>
-    list.value.filter((item) => !item.checked),
-  )
+  const checkedList = computed(() => list.value.filter((item) => item.checked === true))
+  const uncheckedList = computed(() => list.value.filter((item) => !item.checked))
 
   return {
     list,

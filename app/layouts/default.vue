@@ -3,15 +3,11 @@
 </script>
 <template>
   <v-app>
-    <app-navbar
-      :menu-items="navItems"
-      @drawer="toggleDrawer"
-    />
+    <app-navbar :menu-items="navItems"
+@drawer="toggleDrawer" />
 
-    <app-nav-drawer
-      v-model:drawer="isDrawerActive"
-      :menu-items="navItems"
-    />
+    <app-nav-drawer v-model:drawer="isDrawerActive"
+:menu-items="navItems" />
     <v-main>
       <v-container>
         <slot />
