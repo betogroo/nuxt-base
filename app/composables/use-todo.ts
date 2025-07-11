@@ -43,6 +43,10 @@ const useTodo = () => {
   const clearList = () => {
     list.value = []
   }
+  const deleteItem = (id: string) => {
+    list.value = list.value.filter((item) => item.id !== id)
+  }
+
   const addDefaultList = () => {
     clearList()
     list.value = defaultList.map((item) => ({
@@ -62,12 +66,21 @@ const useTodo = () => {
     list.value.unshift(newData)
   }
 
-  const checkedList = computed(() =>
-    list.value.filter((item) => item.checked === true),
-  )
-  const uncheckedList = computed(() =>
-    list.value.filter((item) => !item.checked),
-  )
+  const selectAll = () => {
+    list.value = list.value.map((item) => ({
+      ...item,
+      checked: true,
+    }))
+  }
+  const selectNone = () => {
+    list.value = list.value.map((item) => ({
+      ...item,
+      checked: false,
+    }))
+  }
+
+  const checkedList = computed(() => list.value.filter((item) => item.checked === true))
+  const uncheckedList = computed(() => list.value.filter((item) => !item.checked))
 
   return {
     list,
@@ -77,6 +90,9 @@ const useTodo = () => {
     uncheckedList,
     addDefaultList,
     clearList,
+    selectAll,
+    selectNone,
+    deleteItem,
   }
 }
 

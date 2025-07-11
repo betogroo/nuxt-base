@@ -1,29 +1,11 @@
+<script setup lang="ts">
+  const { navItems, toggleDrawer, isDrawerActive } = useNavDrawer()
+</script>
 <template>
   <v-app>
-    <v-app-bar color="primary">
-      <v-toolbar-title>My Nuxt App</v-toolbar-title>
-      <v-spacer />
-      <v-btn
-        text
-        to="/"
-        >Home</v-btn
-      >
-      <v-btn
-        text
-        to="/counter"
-        >Limitador de Acessos</v-btn
-      >
-      <v-btn
-        text
-        to="/todo"
-        >Todo</v-btn
-      >
-      <v-btn
-        text
-        to="/about"
-        >About</v-btn
-      >
-    </v-app-bar>
+    <app-navbar :menu-items="navItems" @drawer="toggleDrawer" />
+
+    <app-nav-drawer v-model:drawer="isDrawerActive" :menu-items="navItems" />
     <v-main>
       <v-container>
         <slot />

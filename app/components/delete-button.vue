@@ -1,4 +1,8 @@
 <script setup lang="ts">
+  defineOptions({
+    name: 'DeleteButton',
+  })
+
   const $emit = defineEmits<{
     'confirm-delete': []
   }>()
@@ -16,19 +20,8 @@
 </script>
 
 <template>
-  <v-btn
-    v-if="!readyToDelete"
-    block
-    color="error"
-    variant="outlined"
-    @click="handleDelete"
+  <v-btn v-if="!readyToDelete" block color="error" variant="outlined" @click="handleDelete"
     >Limpar Lista</v-btn
   >
-  <v-btn
-    v-else
-    block
-    color="error"
-    @click="confirmDelete"
-    >Clique novamente para confirmar</v-btn
-  >
+  <v-btn v-else block color="error" @click="confirmDelete">Clique novamente para confirmar</v-btn>
 </template>

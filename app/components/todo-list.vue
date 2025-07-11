@@ -5,10 +5,14 @@
     name: string
     notFoundMessage?: string
   }
-  const { notFoundMessage = 'Nenhum dado a exibir' } = defineProps<Props>()
 
+  defineOptions({
+    name: 'TodoList',
+  })
+  const { notFoundMessage = 'Nenhum dado a exibir' } = defineProps<Props>()
   const $emit = defineEmits<{
     'item-click': [id: string]
+    'delete-click': [id: string]
   }>()
 </script>
 
@@ -23,17 +27,16 @@
           v-for="item in list"
           :key="item.id"
           :class="item.checked ? 'text-error ' : 'text-success'"
-          :prepend-icon="
-            item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'
-          "
+          :prepend-icon="item.checked ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
           :ripple="false"
           @click="$emit('item-click', item.id)"
         >
           <template #title>
-            <span :class="item.checked ? 'text-decoration-line-through' : ''">{{
-              item.name
-            }}</span>
+            <span :class="item.checked ? 'text-decoration-line-through' : ''">{{ item.name }}</span>
           </template>
+          <template #append
+            ><v-btn icon="mdi-delete" variant="text" @click.stop="$emit('delete-click', item.id)"
+          /></template>
         </v-list-item>
       </template>
     </v-list>
